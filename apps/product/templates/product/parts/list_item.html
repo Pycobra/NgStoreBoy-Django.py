@@ -1,0 +1,22 @@
+{% load static %}
+
+
+
+<a href="{% url 'product_:product_detail_' product_html_frontpage_html_category_html.category.slug product_html_frontpage_html_category_html.slug %}" class="">
+<div class="card">
+    {% for image in product_html_frontpage_html_category_html.product_images.all %}
+    {% if image.is_main %}
+        <img src="{{ image.images.url }}" alt="{{ image.images.alt_text }}">
+    {% endif %}
+    {% endfor %}
+    <!-- <figure class="image is-4by3 mb-4">
+        <image src="{{ product_html_frontpage_html_category_html.get_thumbnail }}">
+    </figure> -->
+    <div class="card-text">
+        <br>
+        <h2 class="subtitle">{{ product_html_frontpage_html_category_html.title|slice:":50" }}</h2>
+        <h3 class="price is-size-6 mb-5"> {{ product_price  }} </h3>
+    </div>
+</div>
+</a>
+

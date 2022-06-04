@@ -1,0 +1,29 @@
+ <div>
+    <h3>Order has been placed</h3>
+    <p>check your email for confirmation</p>
+    <a href="{% url 'account_:dashboard' %}">See order</a>
+</div>
+ <!-- <form>
+     <script src="https://js.paystack.co/v1/inline.js"></script>
+     <button type="button" onclick="makePayment()"></button>
+ </form>
+ <script>
+     function makePayment(){
+        var handler = PaystackPop.setup({
+            key = 'hh75-]]]]'
+            email: {{ email }},
+            amount: 600,
+            currency: 'NGN',
+            ref: ""+Math.floor((Math.random() * 100000000) + 1),
+            ref: ' '+Math.floor((Math.random() * 1000000000) + 1),
+            callback: function(response){
+                alert('success, transaction ref is' + response.reference);
+            },
+            onClose: function(){
+                alert('success');
+            }
+        });
+        handler.openIframe();
+     }
+ </script>
+ -->
