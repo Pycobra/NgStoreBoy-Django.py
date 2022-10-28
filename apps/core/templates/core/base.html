@@ -46,7 +46,7 @@ fa-arrow-down-->
                 <hr>
                 {% if request.user.is_authenticated %}
                 <li>
-                    <a href="{% url "account_:dashboard" %}"><i class="fa fa-dashboard" style="font-weight:600;margin-right:10px;font-size:20px;color:var(--normalblack)"></i>My Dashboard</a>
+                    <a href="{% url "account_:dashboard"  %}"><i class="fa fa-dashboard" style="font-weight:600;margin-right:10px;font-size:20px;color:var(--normalblack)"></i>My Dashboard</a>
                 </li>
                 {% endif %}
                 <li><i class="fa fa-heart-o" style="font-weight:600;margin-right:10px;font-size:20px;color:var(--normalblack)"></i>Saved Items</li>

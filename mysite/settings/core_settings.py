@@ -263,6 +263,7 @@ MPTT_ADMIN_LEVEL_INDENT = 20
 #1) cd C:\Users\BRIGHT\PycharmProjects\pythonProject\game\mysite
 #2) cd C:\Users\BRIGHT\PycharmProjects\pythonProject\game\travel
 #3) cd C:\Users\BRIGHT\PycharmProjects\pythonProject\game\restaurant
+#3) cd C:\Users\BRIGHT\PycharmProjects\pythonProject\game\BrightMusic
 # python manage.py makemigrations
 # python manage.py migrate
 # python manage.py runserver
@@ -272,6 +273,16 @@ MPTT_ADMIN_LEVEL_INDENT = 20
 # django-admin startproject mysite
 # django-admin startapp
 #{{ i.title | truncatechars:30}}
+
+# password_reset_form
+# password_reset_confirm
+# orderplaced
+# edit_login
+# register
+# login
+# base
+# account.views line: 420, 435, 487
+
 
 
 

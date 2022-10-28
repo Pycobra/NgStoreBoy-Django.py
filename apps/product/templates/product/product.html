@@ -50,7 +50,7 @@
                               </div>
                               <div class="innerblock2">
                                   {% for image in product.product_images.all %}
-                                  <img class="sub-image" alt="Responsive image" src="{{ image.images.url }}" alt="{{ image.images.alt_text }}">
+                                  <img class="sub-image" alt="Responsive image" src="{{ image.images.url }}">
                                   {% endfor %}
                               </div>
                               <span style="width:100%;height:1px;background-color:rgba(0,0,0,0.1);"></span>
@@ -530,7 +530,7 @@ $(document).ready(function(){
             $('#' + comment_id).append(comment_box)
 
             /* var comment = document.getElementById(comment_id);
-            comment.insertAdjacentHTML('afterend',
+            comment.insertAdjacentHTML('afterEnd',
               '<div class="make-comment2" id="myDIV2"><div style="width:100%;display:flex;justify-content:space-between;"> \
                         <span style="margin:5px 10px;" class="head">Reply comment</span> \
                         <button style="margin:2px 10px;" type="button" id="close">&times;</button></div> \
@@ -715,7 +715,7 @@ $(document).ready(function(){
                         box.css('border-top','3px solid #ACADA8').css('margin-bottom','20px')
                         $('#all-comment').prepend(box)
 
-                        /*d1.insertAdjacentHTML('afterbegin', '<div class="body" id="' +  id + '" style="border-top:3px solid #ACADA8; margin-bottom:20px;"> \
+                        /*d1.insertAdjacentHTML('afterBegin', '<div class="body" id="' +  id + '" style="border-top:3px solid #ACADA8; margin-bottom:20px;"> \
                               <div class="parent"> \
                                   <div class="content"> \
                                       <div class="top"> \

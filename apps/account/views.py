@@ -213,22 +213,47 @@ def registration_check(request):
 @login_required
 def dashboard(request):
     user = UserBase.objects.get(unique_id=request.user.unique_id)
-    all_account = UserBase.objects.all().exclude(unique_id=user.unique_id).order_by('-created_at')[:5]
-    am_following = Follow.objects.filter(follower=request.user)
-    unread_account_msg = Messages.objects.filter(reciever_id_unique=user.unique_id, is_seen=False).count()
+    all_account = UserBase.objects.all().exclude(unique_id=request.user.unique_id).order_by('-created_at')[:5]
+    am_following = Follow.objects.filter(follower=user)
+    unread_account_msg = Messages.objects.filter(reciever_id_unique=request.user.unique_id, is_seen=False).count()
     my_followers = {}
     unread_store_msg = {}
-    if request.user.is_vendor:
+    if user.is_vendor:
         vendor = user.which_vendor
-        unread_store_msg = Messages.objects.filter(reciever_id_unique=user.which_vendor.unique_id, is_seen=False).count()
+        unread_store_msg = Messages.objects.filter(reciever_id_unique=user.which_vendor.unique_id,
+                                                   is_seen=False).count()
         my_followers = Follow.objects.filter(following=user.which_vendor)
     else:
         vendor = "no_vendor"
 
-    return render(request, 'account/user/dashboard.html', {'account':user, 'my_followers':my_followers, 'imageForm':ImageEditForm,
-                                    'all_account':all_account, 'vendor':vendor, 'unread_account_msg':unread_account_msg,
-                                                           'unread_store_msg':unread_store_msg, 'am_following':am_following})
-    #return render(request, 'account/user/dashboard.html', {user_order:user_order})
+    return render(request, 'account/user/dashboard.html', {'account': user, 'my_followers': my_followers,
+                                                           'imageForm': ImageEditForm, 'all_account': all_account,
+                                                           'vendor': vendor,
+                                                           'unread_account_msg': unread_account_msg,
+                                                           'unread_store_msg': unread_store_msg,
+                                                           'am_following': am_following})
+
+
+# @login_required
+# def dashboard(request, username, unique_id):
+#     user = UserBase.objects.get(unique_id=request.user.unique_id)
+#     all_account = UserBase.objects.all().exclude(unique_id=user.unique_id).order_by('-created_at')[:5]
+#     am_following = Follow.objects.filter(follower=request.user)
+#     unread_account_msg = Messages.objects.filter(reciever_id_unique=user.unique_id, is_seen=False).count()
+#     my_followers = {}
+#     unread_store_msg = {}
+#     if request.user.is_vendor:
+#         vendor = user.which_vendor
+#         unread_store_msg = Messages.objects.filter(reciever_id_unique=user.which_vendor.unique_id, is_seen=False).count()
+#         my_followers = Follow.objects.filter(following=user.which_vendor)
+#     else:
+#         vendor = "no_vendor"
+#
+#     return render(request, 'account/user/dashboard.html', {'account':user, 'my_followers':my_followers,
+#                                     'imageForm':ImageEditForm, 'all_account':all_account, 'vendor':vendor,
+#                                     'unread_account_msg':unread_account_msg, 'unread_store_msg':unread_store_msg,
+#                                     'am_following':am_following})
+#
 
 @login_required
 def users_dashboard(request, id):
@@ -391,7 +416,6 @@ def edit_profile9(request):
             user.user_image = 'images/uploads/profile/' + user_image
             user.mobile = mobile
             user.save()
-
             return redirect('account_:dashboard')
     else:
         user_form = ProfileEditForm(instance=request.user)

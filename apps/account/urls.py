@@ -6,12 +6,11 @@ from .forms import UserLoginForm, PassResetForm, PassResetConfirmForm
 
 app_name="account_"
 urlpatterns = [
+    path('dashboard/', views.dashboard, name="dashboard"),
     #path ('', connection.new_user, name = 'new_user'),
     path('check-registration/', views.registration_check, name="registration_check"),
     path('edit-profile/', views.edit_profile, name="edit_profile"),
     path('delete/', views.delete_account, name="delete_account"),
-    path('dashboard/', views.dashboard, name="dashboard"),
-    path('user-dashboard/<int:id>', views.users_dashboard, name="user_dashboard"),
     path('delete_confirmation/', auth_views.TemplateView.as_view(
         template_name='account/user/delete_confirmation.html'), name="delete_confirmation"),
 

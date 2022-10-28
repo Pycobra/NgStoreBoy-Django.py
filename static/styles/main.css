@@ -412,7 +412,7 @@ body {
     font-size:25px;
     font-style:normal;
     line-height:20px;
-    letter-spacing:5px
+    letter-spacing:5px;
     text-align:center;
     color:var(--normalorange);
     position:relative;
@@ -664,9 +664,9 @@ a, ul, li{
 }
 #nav1 .main-nav #menubars,
 #nav1 .main-nav #menutimes{
-    font-size:45px;
+    font-size:40px;
     display:none;
-    margin-left:50%;
+    /* margin-left:50%; */
 }
 #menuwrap1{
     display:none;
@@ -972,7 +972,7 @@ a, ul, li{
     font-weight:700;
     font-size:25px;
     line-height:20px;
-    letter-spacing:5px
+    letter-spacing:5px;
     text-align:center;
 }
 #top-selling .box-body{
@@ -1123,7 +1123,7 @@ a, ul, li{
     font-size:25px;
     font-family: RoadTest;
     line-height:20px;
-    letter-spacing:5px
+    letter-spacing:5px;
     text-align:center;
 }
 #recently-viewed .box-body,
@@ -2079,7 +2079,7 @@ footer .block2  .countries{
 
     #nav1 .main-nav #menubars{
        display:block;
-       font-size:53px;
+       /* font-size:53px; */
     }
     #nav2, #nav3{
        display:none;
@@ -2103,7 +2103,6 @@ footer .block2  .countries{
 }
 
 
-}
 /*-------------------------------------------------------*/
 
 @media screen and (max-width:600px){

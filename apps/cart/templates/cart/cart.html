@@ -105,6 +105,7 @@
                                     <div class="clear-delivery-msg">&times;</div>
                                 </div>
                             </div>
+
                           {% if mydeliveryopt %}
                           <div class="card card1" data-index="{{mydeliveryopt.id}}">
                                 <div class="row">
@@ -165,10 +166,12 @@
                         </div>
 
                         <div class="block block2">
+
                             <div class="head">
                                 <span>Delivery Address</span>
                                 <span>Please select your delivery address</span>
                             </div>
+
                             <div class="messages">
                                 <div class="body">
                                     <span style="display:flex;flex-wrap:no-wrap;">
@@ -178,6 +181,7 @@
                                     <div class="clear-address-msg">&times;</div>
                                 </div>
                             </div>
+
                           {% if mydeliveryadd %}
                           <!-- <input class="email-input" type="hidden" value="{{mydeliveryadd.email}}">
                           <input class="address-id" type="hidden" value="{{mydeliveryadd.id}}">
@@ -208,32 +212,32 @@
                           <div><button class="select-address2" style="display:none;margin:10px;margin-bottom:15px;">2select another address</button></div>
 
                           <div class="all address">
-                          {% if deliveryaddressess %}
-                          {% for addressess in deliveryaddressess %}
-                          <div class="card card2" {% if mydeliveryadd %} style="display:none" {% endif %} data-index="{{addressess.id}}">
-                            <div class="row">
-                                <div class="card-body">
-                                  <p class="card-text"><span>Fullname: </span> <span>{{addressess.full_name}}</span></p>
-                                  <p class="card-text"><span>Phone: </span> <span>{{addressess.phone}}</span></p>
-                                  <p class="card-text"><span>Email5:</span> <span class="email-text" data-index="{{addressess.id}}">{{addressess.email}}</span></p>
-                                  <p class="card-text"><span>Post code:</span> <span>{{addressess.postal_code}}</span></p>
-                                  <p class="card-text"><span>Town/city:</span> <span>{{addressess.address_line1}}</span></p>
-                                  <p class="card-text"><span>Address line1:</span> <span>{{addressess.address_line2}}</span></p>
-                                  <p class="card-text"><span>Address line2:</span> <span>{{addressess.town_city}}</span></p>
+                              {% if deliveryaddressess %}
+                              {% for addressess in deliveryaddressess %}
+                              <div class="card card2" {% if mydeliveryadd %} style="display:none" {% endif %} data-index="{{addressess.id}}">
+                                <div class="row">
+                                    <div class="card-body">
+                                      <p class="card-text"><span>Fullname: </span> <span>{{addressess.full_name}}</span></p>
+                                      <p class="card-text"><span>Phone: </span> <span>{{addressess.phone}}</span></p>
+                                      <p class="card-text"><span>Email5:</span> <span class="email-text" data-index="{{addressess.id}}">{{addressess.email}}</span></p>
+                                      <p class="card-text"><span>Post code:</span> <span>{{addressess.postal_code}}</span></p>
+                                      <p class="card-text"><span>Town/city:</span> <span>{{addressess.address_line1}}</span></p>
+                                      <p class="card-text"><span>Address line1:</span> <span>{{addressess.address_line2}}</span></p>
+                                      <p class="card-text"><span>Address line2:</span> <span>{{addressess.town_city}}</span></p>
+                                    </div>
+                                  <div class="checkbox">
+                                    <input class="addressOption" type="radio" name="addressOption" value="{{addressess.id}}">
+                                  </div>
+                                    <span class="edit">
+                                        <span class="icon"><i class="fa fa-trash del-address" data-index="{{addressess.id}}"></i></span>
+                                        <span class="icon"><i class="fa fa-pencil" data-index="{{addressess.id}}"></i></span>
+                                    </span>
                                 </div>
-                              <div class="checkbox">
-                                <input class="addressOption" type="radio" name=addressOption" value="{{addressess.id}}">
                               </div>
-                                <span class="edit">
-                                    <span class="icon"><i class="fa fa-trash del-address" data-index="{{addressess.id}}"></i></span>
-                                    <span class="icon"><i class="fa fa-pencil" data-index="{{addressess.id}}"></i></span>
-                                </span>
-                            </div>
+                              {% endfor %}
+                              {% endif %}
                           </div>
-                          {% endfor %}
-                          {% endif %}
-                          </div>
-                            <div class=" card3">
+                          <div class=" card3">
                             <a href="{% url 'account_:add_address' %}">
                                 <div class="row">
                                       <i class="fa fa-plus"></i><span>Add address</span>
